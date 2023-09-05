@@ -1,0 +1,52 @@
+# Arquivos de configuração
+/.env
+/.env.php
+
+# Arquivos de dependências gerados pelo Composer
+/vendor/
+
+# Arquivos de logs
+/log/
+/logs/
+
+# Arquivos temporários
+/tmp/
+/temp/
+
+# Arquivos de cache
+/cache/
+/caches/
+
+# Arquivos de upload de mídia
+/public/uploads/
+
+# Arquivos de sessão
+/sessions/
+/sess/
+
+# Arquivos de compilação e cache do Twig (um mecanismo de template)
+/var/cache/
+
+# Arquivos de configuração específicos do ambiente
+/config/development/
+/config/production/
+/config/staging/
+
+# Arquivos de backup
+*.bak
+*.back
+
+# Arquivos de lixo
+*.log
+*.swp
+
+# Arquivos de ambiente
+/.idea/
+/.vscode/
+.env.local
+.env.development
+.env.staging
+.env.production
+
+# Cache do PHPStorm
+/.phpstorm.meta.php
