@@ -4,23 +4,76 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Swoole Socket Client</title>
+    <title>Swoole Chat App</title>
     <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
         #messages {
             display: flex;
             flex-direction: column;
             margin: 24px 12px;
-            border: 2px solid black;
             padding: 8px;
         }
 
+        .left {
+            background-color: #007BFF;
+            color: white;
+            max-width: 70%;
+            padding: 10px;
+            border-radius: 10px;
+            margin: 5px;
+        }
+
         .right {
-            margin-left: auto;
+            background-color: #343a40;
+            align-self: flex-end;
+            color: white;
+            max-width: 70%;
+            padding: 10px;
+            border-radius: 10px;
+            margin: 5px;
+        }
+
+        #form {
+            display: flex;
+            flex-direction: column;
+            margin: 12px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
         }
     </style>
 </head>
 <body>
-<h1>Chat</h1>
+<h1>Swoole Chat App</h1>
 <div id="messages"></div>
 <form id="form">
     <label for="name">Nome:</label>
