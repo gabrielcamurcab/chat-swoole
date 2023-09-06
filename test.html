@@ -23,6 +23,8 @@
 <h1>Chat</h1>
 <div id="messages"></div>
 <form id="form">
+    <label for="name">Nome:</label>
+    <input type="text" id="name" name="name">
     <label for="message">Mensagem:</label>
     <input type="text" id="message" name="message">
     <button>Enviar</button>
@@ -30,32 +32,36 @@
 <script>
     const ws = new WebSocket('ws://localhost:8081');
     const form = document.querySelector('#form');
+    const name = document.querySelector('#name');
     const message = document.querySelector('#message');
     const messages = document.querySelector('#messages');
 
-    const addMessage = (value, other = false) => {
-        messages.innerHTML += `<p class="${other ? 'right' : 'left'}"><strong>${other ? 'Outro' : 'Eu'}:</strong> ${value}</p>`;
+    const addMessage = (value, name, other = false) => {
+        messages.innerHTML += `<p class="${other ? 'right' : 'left'}"><strong>${other ? name : 'Eu'}:</strong> ${value}</p>`;
     };
 
     form.addEventListener('submit', (event) => {
         event.preventDefault();
 
         const value = message.value;
+        const nameValue = name.value;
 
         if (!value) {
             return;
         }
 
         message.value = '';
+        name.readOnly = true;
         ws.send(JSON.stringify({
+            name: nameValue,
             message: value,
         }));
-        addMessage(value);
+        addMessage(value, nameValue);
     });
 
     ws.onmessage = (event) => {
         const data = JSON.parse(event.data);
-        addMessage(data.message, true);
+        addMessage(data.message, data.name, true);
     };
 </script>
 </body>
